@@ -69,4 +69,10 @@ public class MainActivity extends AppCompatActivity {
 //        intent.putExtra("username", username);
 //        startActivity(intent);
     }
+
+
+    public void sendButton(View view) {
+        Intent intent = new Intent(this, SendEmail.class);
+        startActivity(intent);
+    }
 }
