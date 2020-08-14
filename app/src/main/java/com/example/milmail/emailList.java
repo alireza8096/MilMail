@@ -1,6 +1,7 @@
 package com.example.milmail;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,5 +20,8 @@ public class emailList extends AppCompatActivity {
         EmailAdapter adapter = new EmailAdapter(this, Email.getAllEmails());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
+
+        recyclerView.addItemDecoration(mDividerItemDecoration);
     }
 }
