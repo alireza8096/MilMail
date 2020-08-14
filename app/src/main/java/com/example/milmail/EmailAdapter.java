@@ -4,10 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,12 +30,13 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView senderTextView;
         TextView subjectTextView;
+        ImageView emailImage;
 
         ViewHolder(View itemView) {
             super(itemView);
             senderTextView = itemView.findViewById(R.id.senderInRow);
             subjectTextView = itemView.findViewById(R.id.subjectInRow);
-
+            emailImage = itemView.findViewById(R.id.emailImage);
         }
     }
 
@@ -50,6 +54,7 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.ViewHolder> 
         Email email = data.get(position);
         holder.senderTextView.setText(email.getSender());
         holder.subjectTextView.setText(email.getSubject());
+        Picasso.get().load(email.getImageURL()).into(holder.emailImage);
     }
 
     @Override
